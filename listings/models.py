@@ -1,9 +1,10 @@
 from django.db import models
 from datetime import datetime
-from realtors.model import Realtor
+from realtors.models import Realtor
 
 # Create your models here.
-class listing(models.Model):
+
+class Listing(models.Model):
     realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
@@ -26,5 +27,6 @@ class listing(models.Model):
     photo_6 = models.ImageField(upload_to = 'photos/%Y/%m/%d/', blank = True)    
     is_published = models.BooleanField(default=True)
     list_date = models.DateTimeField(default=datetime.now, blank=True)
-    def__str__(self):
+
+    def __str__(self)
         return self.title
